@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido Fundacion Apoyo</title>
-
+    <title>Aportes</title>
+    <link rel="stylesheet" href="{% static 'core/css/tabla-apoyo.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -48,6 +49,37 @@
     </div>
     <!--FIN MENU UWU-->
 
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="mt-5">Registro Historico de Aportes</h1>
+            <a href="{% url 'registrarse' %}">
+            <button class="mt-5 btn btn-dark">Registrar Aporte</button>
+            </a>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                     <th>Nro de Registro de Aporte</th>
+                     <th>Nombre persona Natural</th>
+                     <th>Rut</th>
+                     <th>Aporte</th>
+                     <th>Fecha de registro</th>
+                </thead>
+                <tbody>
+                {% for x in aportes %}
+                      <tr>
+                            <td data-label="Nro de Registro de Aporte">{{x.idRegistro}}</td>
+                            <td data-label="Nombre persona Natural">{{x.nombre}}</td>
+                            <td data-label="Rut">{{x.rut}}</td>
+                            <td data-label="Aporte">${{x.aporte}}</td>
+                            <td data-label="Fecha de registro">{{x.fecha|date:"d-m-Y" }}</td>
+                      </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
 </body>
 
 </html>

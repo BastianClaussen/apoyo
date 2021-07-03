@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aportes</title>
+    <link rel="stylesheet" href="{% static 'core/css/tabla-apoyo.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="">
+
+
+    <!--MENU UWU-->
+    <style>
+        div.scrollmenu {
+            background-color: darkgrey;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        div.scrollmenu a {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+        div.scrollmenu a:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scrollmenu">
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'feña3' %}">Ficha Residente</a>
+        <a href="{% url 'feña2' %}">Formulario</a>
+        <a href="{% url 'aportes' %}">Aportes</a>
+        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
+    </div>
+    <!--FIN MENU UWU-->
+
+
+    <div class="container-fluid h-100 bg-light text-dark">
+        <div class="row justify-content-center align-items-center mt-5">
+          <h1>Registrar Aporte</h1>    
+        </div>
+        <hr/>
+        <div class="row justify-content-center align-items-center h-100">
+          <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <form action="{% url 'aporteIng' %}" method="POST">
+                {% csrf_token %}
+              <div class="form-group">
+                  <label for="nombre">Nombre del Aportador</label>
+                <input type="text" class="form-control" name="nombre" placeholder="AAAAAAAAAAA BBBBBBBBBB"/>
+              </div>
+              <div class="form-group">
+                <label for="rut">Rut del Aportador</label>
+                <input type="text" pattern="\d*" maxlength="9" class="form-control" name="rut" placeholder="123456789">
+            </div>
+            <div class="form-group">
+                <label for="aporte">Aporte</label>
+              <input type="NUMBER" class="form-control" name="aporte"placeholder="$0" />
+            </div>
+              <div class="form-group">
+                <div class="container">
+                  <div class="row">
+                    <div class="col text-center"><button class="col-6 btn btn-primary btn-sm ">Enviar</button></div>
+                  </div>
+                </div>
+              </div>
+      
+            </form>
+          </div>
+        </div>
+      </div>
+      
+</body>
+
+</html>

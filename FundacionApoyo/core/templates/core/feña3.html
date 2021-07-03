@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ficha Residente</title>
+    <title>Bienvenido Fundacion Apoyo</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -40,9 +40,11 @@
 
 <body>
     <div class="scrollmenu">
-        <a href="index.html">Inicio</a>
-        <a href="feña3.html">Ficha Residente</a>
-        <a href="feña2.html">Formulario</a>
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'feña3' %}">Ficha Residente</a>
+        <a href="{% url 'feña2' %}">Formulario</a>
+        <a href="{% url 'aportes' %}">Aportes</a>
+        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
     </div>
     <!--FIN MENU UWU-->
 

@@ -40,9 +40,11 @@
 
 <body>
     <div class="scrollmenu">
-        <a href="index.html">Inicio</a>
-        <a href="feña3.html">Ficha Residente</a>
-        <a href="feña2.html">Formulario</a>
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'feña3' %}">Ficha Residente</a>
+        <a href="{% url 'feña2' %}">Formulario</a>
+        <a href="{% url 'aportes' %}">Aportes</a>
+        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
     </div>
     <!--FIN MENU UWU-->
 

@@ -11,4 +11,9 @@ class Aportes(models.Model):
     nombre = models.CharField(max_length=255)
     aporte = models.IntegerField()
     fecha = models.DateField(default=datetime.now)
+
+class Ingresos(models.Model):
+    fechaIngreso = models.DateField()
+    ingresos = models.IntegerField(default=0)
+    
     

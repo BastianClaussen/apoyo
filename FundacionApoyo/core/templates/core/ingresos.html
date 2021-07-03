@@ -48,45 +48,35 @@
         <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
         <a href="{% url 'Prestadores' %}">Registro Aportadores</a>
-       
     </div>
     <!--FIN MENU UWU-->
 
 
-    <div class="container-fluid h-100 bg-light text-dark">
-        <div class="row justify-content-center align-items-center mt-5">
-          <h1>Registrar Aporte</h1>    
+    <div class="container">
+        <div class="text-center">
+            <h1 class="mt-5">Consultas de Ingresos</h1>
+           
+           
+            
         </div>
-        <hr/>
-        <div class="row justify-content-center align-items-center h-100">
-          <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <form action="{% url 'aporteIng' %}" method="POST">
-                {% csrf_token %}
-              <div class="form-group">
-                  <label for="nombre">Nombre del Aportador</label>
-                <input type="text" class="form-control" name="nombre" placeholder="AAAAAAAAAAA BBBBBBBBBB"/>
-              </div>
-              <div class="form-group">
-                <label for="rut">Rut del Aportador</label>
-                <input type="text" pattern="\d*" maxlength="9" class="form-control" name="rut" placeholder="123456789">
-            </div>
-            <div class="form-group">
-                <label for="aporte">Aporte</label>
-              <input type="NUMBER" class="form-control" name="aporte"placeholder="$0" />
-            </div>
-              <div class="form-group">
-                <div class="container">
-                  <div class="row">
-                    <div class="col text-center"><button class="col-6 btn btn-primary btn-sm ">Enviar</button></div>
-                  </div>
-                </div>
-              </div>
-      
-            </form>
-          </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                     
+                     <th>Aporte</th>
+                     <th>Fecha de registro</th>
+                </thead>
+                <tbody>
+                {% for x in ingresos %}
+                      <tr>
+                            <td data-label="Aporte">${{x.ingresos}}</td>
+                            <td data-label="Fecha de registro">{{x.fechaIngreso|date:"d-m-Y" }}</td>
+                      </tr>
+                {% endfor %}
+                </tbody>
+              </table>
         </div>
-      </div>
-      
+    </div>
 </body>
 
 </html>

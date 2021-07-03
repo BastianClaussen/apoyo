@@ -1,4 +1,4 @@
-from core.models import Aportes
+from core.models import Aportes, Ingresos 
 from django.shortcuts import redirect, render
 
 # Create your views here.
@@ -17,7 +17,11 @@ def aportes(request):
     return render(request,'core/aportes.html',contexto)
 
 def aporteIng(request):
-    Aportes.objects.create(rut = request.POST['rut'],nombre= request.POST['nombre'],aporte= request.POST['aporte'])
+    a= Aportes.objects.create(rut = request.POST['rut'],nombre= request.POST['nombre'],aporte= request.POST['aporte'])
+    fecha = a.fecha.strftime("%Y-%m-%d")
+    b,c= Ingresos.objects.get_or_create(fechaIngreso=fecha)
+    b.ingresos +=  int(request.POST['aporte'])
+    b.save()
     return redirect(aportes)
 
 def insumos(request):
@@ -26,6 +30,15 @@ def insumos(request):
 def registrarse(request):
     return render(request,'core/registrar.html')
 
+
+def ingresos(request):
+    contexto= {'ingresos':Ingresos.objects.all()}
+    return render(request,'core/ingresos.html', contexto)
+
+
+def Prestadores(request):
+    contexto={'Prestadores':Aportes.objects.values('nombre','rut').distinct()}
+    return render(request,'core/Prestadores.html',contexto)
 
 
     

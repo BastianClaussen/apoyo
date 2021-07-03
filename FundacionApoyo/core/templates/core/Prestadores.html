@@ -1,17 +1,81 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestadores</title>
+    <link rel="stylesheet" href="{% static 'core/css/tabla-apoyo.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="">
+
+
+    <!--MENU UWU-->
+    <style>
+        div.scrollmenu {
+            background-color: darkgrey;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        div.scrollmenu a {
+            display: inline-block;
+            color: black;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+        div.scrollmenu a:hover {
+            background-color: #777;
+        }
+    </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="scrollmenu">
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'feña3' %}">Ficha Residente</a>
+        <a href="{% url 'feña2' %}">Formulario</a>
+        <a href="{% url 'aportes' %}">Aportes</a>
+        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
+        <a href="{% url 'ingresos' %}">Ingresos</a>
+        <a href="{% url 'Prestadores' %}">Registro Aportadores</a>
+    </div>
+    <!--FIN MENU UWU-->
+
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="mt-5">Nómina de portadores Registrados</h1>
+            
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                     <th>Nro de Registro de Aporte</th>
+                     <th>Nombre persona Natural</th>
+                  
+                </thead>
+                <tbody>
+                {% for x in Prestadores %}
+                      <tr>  
+                            <td data-label="Nombre persona Natural">{{x.nombre}}</td>
+                            <td data-label="Rut">{{x.rut}}</td>
+                    
+                      </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </div>
+    </div>
 </body>
+
 </html>

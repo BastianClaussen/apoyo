@@ -2,6 +2,7 @@
 {% load static %}
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,8 +43,8 @@
 <body>
     <div class="scrollmenu">
         <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'feña3' %}">Ficha Residente</a>
-        <a href="{% url 'feña2' %}">Formulario</a>
+        <a href="{% url 'ficharesidente' %}">Ficha Residente</a>
+        <a href="{% url 'ingresosalida' %}">Formulario</a>
         <a href="{% url 'aportes' %}">Aportes</a>
         <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
@@ -56,30 +57,30 @@
         <div class="text-center">
             <h1 class="mt-5">Registro Historico de Aportes</h1>
             <a href="{% url 'registrarse' %}">
-            <button class="mt-5 btn btn-dark">Registrar Aporte</button>
+                <button class="mt-5 btn btn-dark">Registrar Aporte</button>
             </a>
         </div>
         <div class="row">
             <table class="table">
                 <thead>
-                     <th>Nro de Registro de Aporte</th>
-                     <th>Nombre persona Natural</th>
-                     <th>Rut</th>
-                     <th>Aporte</th>
-                     <th>Fecha de registro</th>
+                    <th>Nro de Registro de Aporte</th>
+                    <th>Nombre persona Natural</th>
+                    <th>Rut</th>
+                    <th>Aporte</th>
+                    <th>Fecha de registro</th>
                 </thead>
                 <tbody>
-                {% for x in aportes %}
-                      <tr>
-                            <td data-label="Nro de Registro de Aporte">{{x.idRegistro}}</td>
-                            <td data-label="Nombre persona Natural">{{x.nombre}}</td>
-                            <td data-label="Rut">{{x.rut}}</td>
-                            <td data-label="Aporte">${{x.aporte}}</td>
-                            <td data-label="Fecha de registro">{{x.fecha|date:"d-m-Y" }}</td>
-                      </tr>
-                {% endfor %}
+                    {% for x in aportes %}
+                    <tr>
+                        <td data-label="Nro de Registro de Aporte">{{x.idRegistro}}</td>
+                        <td data-label="Nombre persona Natural">{{x.nombre}}</td>
+                        <td data-label="Rut">{{x.rut}}</td>
+                        <td data-label="Aporte">${{x.aporte}}</td>
+                        <td data-label="Fecha de registro">{{x.fecha|date:"d-m-Y" }}</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 </body>

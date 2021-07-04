@@ -5,11 +5,11 @@ from django.shortcuts import redirect, render
 def index(request):
     return render(request,'core/index.html')
 
-def feña2(request):
-    return render(request,'core/feña2.html')
+def ficharesidente(request):
+    return render(request,'core/ficharesidente.html')
 
-def feña3(request):
-    return render(request,'core/feña3.html')
+def ingresosalida(request):
+    return render(request,'core/ingresosalida.html')
 
 def aportes(request):
     aportes = Aportes.objects.all()

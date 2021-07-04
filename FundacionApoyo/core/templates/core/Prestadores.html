@@ -2,6 +2,7 @@
 {% load static %}
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,8 +43,8 @@
 <body>
     <div class="scrollmenu">
         <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'feña3' %}">Ficha Residente</a>
-        <a href="{% url 'feña2' %}">Formulario</a>
+        <a href="{% url 'ficharesidente' %}">Ficha Residente</a>
+        <a href="{% url 'ingresosalida' %}">Formulario</a>
         <a href="{% url 'aportes' %}">Aportes</a>
         <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
@@ -55,25 +56,25 @@
     <div class="container">
         <div class="text-center">
             <h1 class="mt-5">Nómina de portadores Registrados</h1>
-            
+
         </div>
         <div class="row">
             <table class="table">
                 <thead>
-                     <th>Nro de Registro de Aporte</th>
-                     <th>Nombre persona Natural</th>
-                  
+                    <th>Nro de Registro de Aporte</th>
+                    <th>Nombre persona Natural</th>
+
                 </thead>
                 <tbody>
-                {% for x in Prestadores %}
-                      <tr>  
-                            <td data-label="Nombre persona Natural">{{x.nombre}}</td>
-                            <td data-label="Rut">{{x.rut}}</td>
-                    
-                      </tr>
-                {% endfor %}
+                    {% for x in Prestadores %}
+                    <tr>
+                        <td data-label="Nombre persona Natural">{{x.nombre}}</td>
+                        <td data-label="Rut">{{x.rut}}</td>
+
+                    </tr>
+                    {% endfor %}
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 </body>

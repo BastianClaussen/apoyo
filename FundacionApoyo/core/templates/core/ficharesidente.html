@@ -44,7 +44,7 @@
     <div class="scrollmenu">
         <a href="{% url 'index' %}">Inicio</a>
         <a href="{% url 'ficharesidente' %}">Ficha Residente</a>
-        <a href="{% url 'ingresosalida' %}">Formulario</a>
+        <a href="{% url 'ingresosalida' %}">Ingreso/Salida Residentes</a>
         <a href="{% url 'aportes' %}">Aportes</a>
         <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
@@ -60,44 +60,52 @@
                     <div class="card-body">
                         <div class="header">
                             <h2>
-                                Ficha del residente  
+                                Ficha del residente
                             </h2>
                         </div>
                         <form action="/ficharesidente/" method="POST">{% csrf_token %}
                             <div class="form-group">
                                 <H6>Nombres y Apellidos</H6>
-                                <textarea name="txtNombre_ap" id="Nombre_ap" rows="1" cols="50" placeholder="Ej: maria luisa de narnia"></textarea>
+                                <textarea name="txtNombre_ap" id="Nombre_ap" rows="1" cols="50"
+                                    placeholder="Ej: maria luisa de narnia"></textarea>
 
                                 <H6>Medicamentos</H6>
-                                <textarea name="txtMedicamentos" id="Medicamentos" rows="1" cols="50" placeholder="Nombre del medicamento"></textarea> 
+                                <textarea name="txtMedicamentos" id="Medicamentos" rows="1" cols="50"
+                                    placeholder="Nombre del medicamento"></textarea>
 
                                 <H6>Situación de salud </H6>
-                                <textarea name="txtSituación_salud" id="Situación_salud" rows="5" cols="50" placeholder="Descripcion de salud"></textarea>
-                                
+                                <textarea name="txtSituación_salud" id="Situación_salud" rows="5" cols="50"
+                                    placeholder="Descripcion de salud"></textarea>
+
                                 <H6>Cuidados especiales</H6>
-                                <textarea name="txtCuidado_espe" id="Cuidado_espe" rows="5" cols="50" placeholder="Descripcion de tratados especiales"></textarea>
+                                <textarea name="txtCuidado_espe" id="Cuidado_espe" rows="5" cols="50"
+                                    placeholder="Descripcion de tratados especiales"></textarea>
                             </div>
                             <div class="header">
                                 <h4>
-                                    Datos del familiar  
+                                    Datos del familiar
                                 </h4>
                             </div>
                             <div class="container">
                                 <div class="row text-center">
                                     <div class="col-md-6">
                                         <p>
-                                            <b>Nombres y Apellidos:  </b>  <input type="text" name="txtNombre_ap_fam" class="form-contol" placeholder="Su nombre es....">
+                                            <b>Nombres y Apellidos: </b> <input type="text" name="txtNombre_ap_fam"
+                                                class="form-contol" placeholder="Su nombre es....">
                                         </p>
                                         <p>
-                                            <b>Fecha nacimiento:  </b> <input type="date" name="dateNacimiento" step="1" min="1901-12-31" max="2003-01-01" value="2021-07-05">  
+                                            <b>Fecha nacimiento: </b> <input type="date" name="dateNacimiento" step="1"
+                                                min="1901-12-31" max="2003-01-01" value="2021-07-05">
                                         </p>
                                     </div>
                                     <div class="col-md-6">
                                         <p>
-                                            <b>Rut:  </b>  <input type="text" name="txtRutFam " class="form-contol" placeholder="xx.xxxx.xxx-x">
+                                            <b>Rut: </b> <input type="text" name="txtRutFam " class="form-contol"
+                                                placeholder="xx.xxxx.xxx-x">
                                         </p>
                                         <p>
-                                            <b>Domicilio:  </b> <input type="text" name="txtDomicilio_fam"  placeholder="Su direccion es...."> 
+                                            <b>Domicilio: </b> <input type="text" name="txtDomicilio_fam"
+                                                placeholder="Su direccion es....">
                                         </p>
                                     </div>
                                 </div>
@@ -105,22 +113,25 @@
                             <div class="container">
                                 <div class="row text-center">
                                     <div class="col-md-6">
-                                        
+
                                         <p>
-                                            Sexo: <input type="radio" name="sexo" id="sexo-h" value="h" /> <label for="sexo-h">Hombre</label> <input type="radio" name="sexo" id="sexo-m" value="m" /> <label for="sexo-m">Mujer</label>
+                                            Sexo: <input type="radio" name="sexo" id="sexo-h" value="h" /> <label
+                                                for="sexo-h">Hombre</label> <input type="radio" name="sexo" id="sexo-m"
+                                                value="m" /> <label for="sexo-m">Mujer</label>
                                         </p>
-                                        
+
                                     </div>
                                     <div class="col-md-6 text-center my-auto">
                                         <p>
-                                            <b>Ocupacion:  </b>  <input type="text" name="txtOcupaFAM" class="form-contol" placeholder="Trabaja en....">
+                                            <b>Ocupacion: </b> <input type="text" name="txtOcupaFAM" class="form-contol"
+                                                placeholder="Trabaja en....">
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary btn-lg" value="guardar">
-                            </div> 
+                            </div>
                         </form>
                     </div>
                 </div>

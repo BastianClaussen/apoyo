@@ -4,7 +4,7 @@ from .views import aportes, insumos, ficharesidente, ingresosalida, index,regist
 
 urlpatterns = [
     path('',index,name='index'),
-    path('ficharesidente',ficharesidente,name='ficharesidente'),
+    path('ficharesidente/',ficharesidente),
     path('ingresosalida',ingresosalida,name='ingresosalida'),
     path('aportes',aportes,name='aportes'),
     path('insumos',insumos,name='insumos'),
@@ -12,5 +12,4 @@ urlpatterns = [
     path('aporteIng',aporteIng,name='aporteIng'), 
     path('ingresos',ingresos, name='ingresos'),
     path('Prestadores',Prestadores, name='Prestadores')
-
 ]

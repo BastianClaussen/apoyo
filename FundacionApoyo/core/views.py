@@ -5,6 +5,9 @@ from django.shortcuts import redirect, render
 def index(request):
     return render(request,'core/index.html')
 
+def ficha(request):
+    return render(request,'core/ficharesidente.html')
+
 def registrarficha(request):
     nombre=request.POST['txtNombre_ap']
     medicamento=request.POST['txtMedicamentos']
@@ -12,14 +15,16 @@ def registrarficha(request):
     cuidadoEs=request.POST['txtCuidado_espe']
     nombreApeFAM=request.POST['txtNombre_ap_fam']
     date=request.POST['dateNacimiento']
-    runFam=request.POST['txtRutFam']
     domicilioFam=request.POST['txtDomicilio_fam']
     sexoFam=request.POST['sexo']
     ocupacionFam=request.POST['txtOcupaFAM']
 
-    ficha=Ficha.objects.create(nombre=nombre, medicamento=medicamento, situa=situa, cuidadoEs=cuidadoEs, nombreApeFAM=nombreApeFAM, date=date, runFam=runFam, domicilioFam=domicilioFam, sexoFam=sexoFam, ocupacionFam=ocupacionFam )
+    Ficha.objects.create(Medicamentos = medicamento, Cuidados_especiales = cuidadoEs,
+                               Situación_salud = situa, NombreApe = nombre, NombreCom_fam = nombreApeFAM,
+                               fechaNa_fam = date, Domicilio_fam = domicilioFam, Ocupacion_fam = ocupacionFam,
+                               sexoFam = sexoFam)
 
-    return redirect ('/')
+    return redirect (ficha)
 
 def ingresosalida(request):
     return render(request,'core/ingresosalida.html')

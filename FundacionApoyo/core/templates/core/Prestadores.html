@@ -43,10 +43,9 @@
 <body>
     <div class="scrollmenu">
         <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'ficharesidente' %}">Ficha Residente</a>
+        <a href="{% url 'ficha' %}">Ficha Residente</a>
         <a href="{% url 'ingresosalida' %}">Ingreso/Salida Residentes</a>
         <a href="{% url 'aportes' %}">Aportes</a>
-        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
         <a href="{% url 'Prestadores' %}">Registro Aportadores</a>
     </div>
@@ -61,8 +60,8 @@
         <div class="row">
             <table class="table">
                 <thead>
-                    <th>Nro de Registro de Aporte</th>
                     <th>Nombre persona Natural</th>
+                    <th>Rut</th>
 
                 </thead>
                 <tbody>

@@ -38,15 +38,22 @@
             background-color: #777;
         }
     </style>
+    <script type="text/javascript">
+
+        
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var dt = new Date();
+            document.getElementById('hour').innerHTML = dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+        });
+    </script>
 </head>
 
 <body>
     <div class="scrollmenu">
         <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'ficharesidente' %}">Ficha Residente</a>
+        <a href="{% url 'ficha' %}">Ficha Residente</a>
         <a href="{% url 'ingresosalida' %}">Ingreso/Salida Residentes</a>
         <a href="{% url 'aportes' %}">Aportes</a>
-        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
         <a href="{% url 'Prestadores' %}">Registro Aportadores</a>
     </div>
@@ -63,7 +70,7 @@
                                 d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
                         </svg>Ingreso y Salida de los Residentes </center>
                 </h3>
-                <form action="/ingresosalida/" method="POST">{% csrf_token %}
+                <center> <form action="{% url 'ingresosalida' %}" method="POST">{% csrf_token %}
                     <p>
                         <label>Nombres:</label>
                         <input type="text" name="nombres" minlength="3" required>
@@ -76,13 +83,9 @@
                         <label>Direccion E-mail</label>
                         <input type="email" name="email" placeholder="nombre@dominio.cl" required>
                     </p>
-                    <p>
-                        <label>Hora de entrada:</label>
-                        <input type="text" name="asunto" required>
-                    </p>
                     <p class="block">
                         <label>Hora de salida:</label>
-                        <input type="text" name="asunto" required>
+                        <span type="text" name="asunto" id="hour"></span>    
                     </p>
                     <div>
                         <center><button type="reset" class="btn btn-center btn-danger">Limpiar</button></center>
@@ -91,7 +94,7 @@
                         <center><button type="submit" class="btn btn-center">Enviar</button></center>
                     </div>
 
-                </form>
+                </form></center>
             </div>
 
 </body>

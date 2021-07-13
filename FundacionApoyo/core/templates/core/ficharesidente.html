@@ -43,10 +43,9 @@
 <body>
     <div class="scrollmenu">
         <a href="{% url 'index' %}">Inicio</a>
-        <a href="{% url 'ficharesidente' %}">Ficha Residente</a>
+        <a href="{% url 'ficha' %}">Ficha Residente</a>
         <a href="{% url 'ingresosalida' %}">Ingreso/Salida Residentes</a>
         <a href="{% url 'aportes' %}">Aportes</a>
-        <a href="{% url 'insumos' %}">Insumos y Bodega</a>
         <a href="{% url 'ingresos' %}">Ingresos</a>
         <a href="{% url 'Prestadores' %}">Registro Aportadores</a>
     </div>
@@ -63,7 +62,8 @@
                                 Ficha del residente
                             </h2>
                         </div>
-                        <form action="/ficharesidente/" method="POST">{% csrf_token %}
+                        <form action="{% url 'registrarficha' %}" method="POST">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <H6>Nombres y Apellidos</H6>
                                 <textarea name="txtNombre_ap" id="Nombre_ap" rows="1" cols="50"
@@ -95,13 +95,13 @@
                                         </p>
                                         <p>
                                             <b>Fecha nacimiento: </b> <input type="date" name="dateNacimiento" step="1"
-                                                min="1901-12-31" max="2003-01-01" value="2021-07-05">
+                                                min="1901-12-31" max="2003-01-01" >
                                         </p>
                                     </div>
                                     <div class="col-md-6">
                                         <p>
-                                            <b>Rut: </b> <input type="text" name="txtRutFam " class="form-contol"
-                                                placeholder="xx.xxxx.xxx-x">
+                                            <b>Rut: </b> <input type="text" name="txtRutFam" class="form-contol"
+                                            placeholder="xx.xxxx.xxx-x">
                                         </p>
                                         <p>
                                             <b>Domicilio: </b> <input type="text" name="txtDomicilio_fam"
